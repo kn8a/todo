@@ -29,8 +29,14 @@ body {
 
 }
 
-.main {
+.right-pane {
     flex:5;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -40,86 +46,10 @@ body {
     padding: 2vh;
 }
 
-.card {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: min-content;
-    width: 300px;
-    padding: 1vh;
-    border-radius: 15px;
-    background-color: white;
-
-    border: lightblue 2px solid;
-}
-
-.card p {
-    font-weight: 100;
-    font-size: smaller;
-}
-
-.card-bar {
-    display: flex;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    height: 3vh;
-    justify-content: space-between;
-    border: 0px purple solid;
-    align-items: center;
-}
-
-
-.priority-high, .priority-med, .priority-low {
-    font-weight: 200;
-    font-size: x-small;
-    border-radius: 50px;
-
-}
-
-.priority-high {
-    color: red;
-    border: 1px red solid;
-    padding: 4px;
-}
-
-.priority-medium {
-    color: orange;
-    border: 1px orange solid;
-    padding: 4px;
-}
-
-.priority-low {
-    color: grey;
-    border: 1px grey solid;
-    padding: 4px;
-}
-
-.task-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1vh;
-}
-
-.task-action {
-    padding: 1vh;
-    border-radius: 50px;
-    border: 1px grey solid;
-    font-size: x-small;
-    cursor: pointer;
-}
-
 .new-card {
     display: flex;
-    align-items: center;
-    align-content: center;
-}
-
-.add-card {
-    background-color: lightblue;
-    padding: 2vh;
-    border-radius: 200px;
-    font-size: 6vh;
-    color: white;
-    cursor: pointer;
+    justify-content: right;
+    justify-items:flex-end;
+    padding-bottom: 20px;
+    padding-right: 20px;
 }
