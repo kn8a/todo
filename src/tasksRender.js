@@ -4,11 +4,12 @@ export function makeCards (task, project) {
     for (let i=0; i < task.length; i++) {
         if (task[i].project == project) {
             renderCard(task[i]);
+            projectToCard(project);
         }
     }
 }
 
-function renderCard(task) {
+export function renderCard(task) {
     const mainDiv = document.getElementById('main')
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
@@ -58,3 +59,10 @@ function renderCard(task) {
         taskDel.textContent = '❌';
         taskActions.appendChild(taskDel);
 }
+
+export function projectToCard(project) {
+    const newCard = document.getElementById('showForm');
+    newCard.removeAttribute('data-project');
+    newCard.setAttribute('data-project',project);
+}
+
