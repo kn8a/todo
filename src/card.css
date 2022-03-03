@@ -28,7 +28,7 @@
 }
 
 
-.priority-high, .priority-med, .priority-low {
+.priority-high, .priority-medium, .priority-low {
     font-weight: 200;
     font-size: x-small;
     border-radius: 50px;

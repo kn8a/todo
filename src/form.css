@@ -24,15 +24,13 @@
     left: 50%;
     top: 5%;
     transform: translate(-50%, 5%);
-    border: 2px solid #EB5E28;
+    border: 2px solid lightblue;
     border-radius: 3vh;
     z-index: 9;
     background-color: #ffffff;
     padding: 3vh;
     color: #403D39;
-    box-shadow: 1px 1px 14px -1px rgba(235,94,40,0.79);
-    -webkit-box-shadow: 1px 1px 14px -1px rgba(235,94,40,0.79);
-    -moz-box-shadow: 1px 1px 14px -1px rgba(235,94,40,0.79);
+    box-shadow: 1px 1px 14px -1px lightblue;
 
 }
 
@@ -75,7 +73,7 @@ label {
     user-select: none;
 }
 
-input[type="text"], input[type="number"], textarea, select{
+input[type="text"], input[type="number"], textarea, input[type="date"], select{
     border:1px lightblue solid;
     outline:none;
     height:34px;  

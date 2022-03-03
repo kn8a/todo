@@ -1,5 +1,7 @@
 //takes tasks array and project name
 
+import { deleteTask, taskArray } from "./data";
+
 export function makeCards (task, project) {
     for (let i=0; i < task.length; i++) {
         if (task[i].project == project) {
@@ -58,6 +60,13 @@ export function renderCard(task) {
         taskDel.setAttribute('data-del', task.id);
         taskDel.textContent = '❌';
         taskActions.appendChild(taskDel);
+        taskDel.addEventListener('click', () => {
+                console.log(task.id);
+                removeDomTask(task.id);
+                deleteTask(task.id);
+                
+                console.log(taskArray);
+        })
 }
 
 export function projectToCard(project) {
@@ -66,3 +75,6 @@ export function projectToCard(project) {
     newCard.setAttribute('data-project',project);
 }
 
+export function removeDomTask(taskId) {
+        document.getElementById('main').removeChild(document.getElementById(taskId));
+}
