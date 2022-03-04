@@ -15,6 +15,7 @@ export function addTask(title, text, date, priority, project) { //task object co
     if (priority == ''){ this.priority = 'low';}
     else {this.priority = priority;}
     this.project = project;
+    
     //log(this);
 }
 
@@ -29,6 +30,32 @@ export function deleteTask(taskId) {
     taskArray[index].date = '';
     taskArray[index].priority = '';
     taskArray[index].status = '';
-    
+    updateStorage(taskArray);
     //if (index !== -1) taskArray.splice(index, 1);
 }
+
+
+
+export function updateStorage(tasksArray){
+    if (typeof(window.localStorage) !== "undefined") {
+        // browser supports local storage
+        localStorage.setItem('tasks', JSON.stringify(tasksArray));
+        console.log(localStorage);        
+      } else {
+        // browser does not support local storage
+        console.log('localstorage unsupported');
+        
+      }
+    
+}
+
+
+
+
+
+
+
+// Code to check browser support
+
+
+

@@ -2,7 +2,7 @@ const log = console.log;
 
 
 import { makeCards, renderCard } from './tasksRender.js';
-import { addTask, taskArray } from './data.js'
+import { addTask, taskArray, updateStorage } from './data.js'
 
 import './style.css';
 import './card.css';
@@ -37,7 +37,7 @@ form.onsubmit = function(form) {
   let taskObject = new addTask(newTitle, newText, newDate, newPriority, newProject);
   //log(taskObject);
   taskArray.push(taskObject);
-    
+  updateStorage(taskArray);
   closeForm(); 
   form.preventDefault() //prevents from defaulting to original state
   this.reset(); 
