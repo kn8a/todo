@@ -1,8 +1,8 @@
 export let taskArray = [
-    {'id': '1', 'project': 'first project', 'title': `task1`, 'text': `this is some task that needs to be completed`, 'date': `28/02/2022`, 'priority': 'high', 'status': 'active'},
-    {'id': '2', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
-    {'id': '3', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'low', 'status': 'active'},
-    {'id': '4', 'project': 'not project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
+    {'id': '1', 'project': 'Demo project', 'title': `Demo`, 'text': `This is a demo task, it can be chnaged or deleted`, 'date': `anytime`, 'priority': 'low', 'status': 'active'},
+    //{'id': '2', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
+    //{'id': '3', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'low', 'status': 'active'},
+    //{'id': '4', 'project': 'not project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
 ];
 
 export function addTask(title, text, date, priority, project) { //task object constructor
@@ -44,14 +44,25 @@ export function updateStorage(tasksArray){
       } else {
         // browser does not support local storage
         console.log('localstorage unsupported');
-        
       }
-    
 }
 
 
-
-
+export function loadStorage() {
+    if (localStorage.getItem('tasks') != null) {
+        let array = localStorage.getItem('tasks');
+        if (array != null) {
+            array = JSON.parse(array);
+            taskArray = array;
+        }
+        
+    }
+    else {
+        let demoTask = new addTask('Demo', 'This is a demo task', 'anytime', 'low', 'Demo project');
+        taskArray.push(demoTask);
+        updateStorage(taskArray);
+    }
+}
 
 
 

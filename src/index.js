@@ -2,15 +2,21 @@ const log = console.log;
 
 
 import { makeCards, renderCard } from './tasksRender.js';
-import { addTask, taskArray, updateStorage } from './data.js'
+import { addTask, taskArray, updateStorage, loadStorage } from './data.js'
 
 import './style.css';
 import './card.css';
 import './form.css';
 
 //log(taskArray);
+//localStorage.clear();
+console.log(localStorage);
+console.log(localStorage.getItem('tasks'))
 
-makeCards(taskArray, 'first project');
+loadStorage();
+console.log(taskArray);
+makeCards(taskArray, 'Demo project');
+
 
 
 
