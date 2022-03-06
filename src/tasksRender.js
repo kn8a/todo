@@ -1,6 +1,6 @@
 //takes tasks array and project name
 
-import { deleteTask, taskArray } from "./data";
+import { deleteTask, taskArray, changeStatus } from "./data";
 
 export function makeCards (task, project) {
     for (let i=0; i < task.length; i++) {
@@ -37,7 +37,8 @@ export function renderCard(task) {
     const cardPriority = document.createElement('div')
     cardPriority.classList.add(`priority-${task.priority}`);
     cardPriority.textContent = `${task.priority} priority`;
-    cardBarDiv.appendChild(cardPriority);   
+    cardBarDiv.appendChild(cardPriority);
+    cardPriority.id = `priority-${task.id}`;   
             //task actions
     const taskActions = document.createElement('div');
     taskActions.classList.add('task-actions');
@@ -48,12 +49,19 @@ export function renderCard(task) {
         taskDone.setAttribute('data-done', task.id);
         taskDone.textContent = '✔️';
         taskActions.appendChild(taskDone);
+        taskDone.id = `done-${task.id}`;
+        taskDone.addEventListener('click', () => {
+                cardDone(task.id);
+                changeStatus(task.id, 'done');
+                console.log(taskArray);
+        })
                 //edit
         const taskEdit = document.createElement('div');
         taskEdit.classList.add('task-action');
         taskEdit.setAttribute('data-edit', task.id);
         taskEdit.textContent = '🖊️';
         taskActions.appendChild(taskEdit);
+        taskEdit.id = `edit-${task.id}`;
                 //delete
         const taskDel = document.createElement('div');
         taskDel.classList.add('task-action');
@@ -67,6 +75,10 @@ export function renderCard(task) {
                 
                 console.log(taskArray);
         })
+
+        if (task.status == 'done') {
+                cardDone(task.id);
+        }
 }
 
 export function projectToCard(project) {
@@ -77,4 +89,16 @@ export function projectToCard(project) {
 
 export function removeDomTask(taskId) {
         document.getElementById('main').removeChild(document.getElementById(taskId));
+}
+
+export function cardDone(taskId) {
+        document.getElementById(taskId).style.border = '2px lightgrey solid';
+        
+        const priority = document.getElementById(`priority-${taskId}`);
+        priority.textContent = 'Completed';
+        priority.style.color = 'green';
+        priority.style.border = '1px green solid';
+        document.getElementById(`done-${taskId}`).style.display = 'none';
+        document.getElementById(`edit-${taskId}`).style.display = 'none';
+        document.getElementById(taskId).style.color = 'grey';
 }

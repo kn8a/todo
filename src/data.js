@@ -15,6 +15,7 @@ export function addTask(title, text, date, priority, project) { //task object co
     if (priority == ''){ this.priority = 'low';}
     else {this.priority = priority;}
     this.project = project;
+    this.status = 'active';
     
     //log(this);
 }
@@ -34,7 +35,13 @@ export function deleteTask(taskId) {
     //if (index !== -1) taskArray.splice(index, 1);
 }
 
-
+export function changeStatus(taskId, newStatus) {
+    const index = taskArray.findIndex(function(o){
+        return o.id == taskId;
+    })
+    taskArray[index].status = newStatus;
+    updateStorage(taskArray);
+} 
 
 export function updateStorage(tasksArray){
     if (typeof(window.localStorage) !== "undefined") {
