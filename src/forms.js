@@ -1,3 +1,6 @@
+  
+ 
+  
   export function closeForm() {
     document.getElementById("popupForm").style.display = "none"; //close form
     document.getElementById("entryForm").reset();  //reset form fields

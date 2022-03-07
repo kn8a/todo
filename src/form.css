@@ -39,11 +39,38 @@
     flex-direction: column;
 }
 
+.buttonCont {
+    display: flex;
+    justify-content: right;
+}
+
 .formButton {
+    margin-top: 2vh;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
-    width: 90%;
-    background-color:#EB5E28;
+    width: 70px;
+    height: 70px;
+    align-self: center;
+    background-color:lightgreen;
+    color:white ;
+    margin: 0.5vh;
+    border-radius: 3vh;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: larger;
+    border: 0;
+    transition: transform 80ms ease-in;
+    box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
+}
+
+.formButtonClose {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    width: 40px;
+    height: 40px;
+    background-color:lightcoral;
     color:#FFFCF2 ;
     margin: 0.5vh;
     align-self: center;
@@ -53,9 +80,7 @@
     font-size: large;
     border: 0;
     transition: transform 80ms ease-in;
-    box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 14px 17px -13px rgba(0,0,0,0.75);
+
 }
 
 .formButton:hover {
@@ -89,3 +114,23 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
   textarea {
       min-height: 8vh;
   }
+
+  .project-buttons {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    width: 40px;
+    height: 40px;
+    background-color:lightcoral;
+    color:#FFFCF2 ;
+    margin: 0.5vh;
+    border-radius: 3vh;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: large;
+    border: 0;
+    transition: transform 80ms ease-in;
+}
+
+.add {
+    background-color:lightgreen;
+}

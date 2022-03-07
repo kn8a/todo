@@ -67,8 +67,6 @@ export function renderCard(task) {
                 document.getElementById('updateFormDiv').style.display = "block"; //show form
                 document.getElementById('update-id').value = task.id;
                 document.getElementById('title-update').value = task.title;
-                console.log(task);
-                //document.getElementById('text-update').value = task.text;
                 document.getElementById('text-update').textContent = task.text;
                 document.getElementById('date-update').value = task.date;
                 document.getElementById('update-priority-label').textContent = `Currently set to ${task.priority} priority`;
