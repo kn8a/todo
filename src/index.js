@@ -1,8 +1,9 @@
 const log = console.log;
 
 
-import { makeCards, renderCard } from './tasksRender.js';
-import { addTask, taskArray, updateStorage, loadStorage } from './data.js'
+import { makeCards, renderCard, removeChilds } from './tasksRender.js';
+import { addTask, taskArray, updateStorage, loadStorage, updateTask } from './data.js';
+import { closeForm, closeUpdateForm } from './forms.js';
 
 import './style.css';
 import './card.css';
@@ -17,17 +18,6 @@ loadStorage();
 console.log(taskArray);
 makeCards(taskArray, 'Demo project');
 
-
-
-
-const showForm = document.getElementById('showForm'); //new book button to variable
-showForm.onclick = function() { 
-  log(document.getElementById('showForm').getAttribute('data-project'));
-  document.getElementById('popupForm').style.display = "block"; //show form
-  showForm.style.backgroundColor="transparent";//hide + button
-  showForm.style.color="transparent";
-  showForm.style.cursor="default"
-}
 
 let form = document.getElementById('entryForm');
 form.onsubmit = function(form) { 
@@ -51,12 +41,35 @@ form.onsubmit = function(form) {
   renderCard(taskArray[taskArray.length-1]);
   }
 
-  function closeForm() {
-    document.getElementById("popupForm").style.display = "none"; //close form
-    document.getElementById("entryForm").reset();  //reset form fields
-    showForm.style.backgroundColor="lightblue"; //restor + button
-    showForm.style.color="#FFFCF2";
-    showForm.style.cursor="pointer";
-  }
+let updateForm = document.getElementById('updateForm');
+updateForm.onsubmit = function(form) { 
+  let newTitle = document.getElementById('title-update').value; 
+    //log(newTitle);
+  let newText = document.getElementById('text-update').value;
+    //log(newText);
+  let newDate = document.getElementById('date-update').value;
+    //log(newDate);
+  let newPriority = document.getElementById('priority-update').value;
+    //log(newPriority);
+  let taskId = document.getElementById('update-id').value;
+  let project = document.getElementById('update-project').value;
+  updateTask(taskId, newTitle, newText, newDate, newPriority)
+  updateStorage(taskArray);
+  closeUpdateForm(); 
+  form.preventDefault() //prevents from defaulting to original state
+  this.reset(); 
+  removeChilds(document.getElementById('main'));
+    
+  makeCards(taskArray, project)
+  log(taskArray);
+    //renderCard(taskArray[taskArray.length-1]);
+}
 
-
+const showForm = document.getElementById('showForm'); //new book button to variable
+  showForm.onclick = function() { 
+    log('this is the project ',document.getElementById('showForm').getAttribute('data-project'));
+    document.getElementById('popupForm').style.display = "block"; //show form
+    showForm.style.backgroundColor="transparent";//hide + button
+    showForm.style.color="transparent";
+    showForm.style.cursor="default"
+}

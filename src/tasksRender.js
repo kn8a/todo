@@ -9,6 +9,7 @@ export function makeCards (task, project) {
             projectToCard(project);
         }
     }
+    projectToCard(project);
 }
 
 export function renderCard(task) {
@@ -62,6 +63,18 @@ export function renderCard(task) {
         taskEdit.textContent = '🖊️';
         taskActions.appendChild(taskEdit);
         taskEdit.id = `edit-${task.id}`;
+        taskEdit.addEventListener('click', () => {
+                document.getElementById('updateFormDiv').style.display = "block"; //show form
+                document.getElementById('update-id').value = task.id;
+                document.getElementById('title-update').value = task.title;
+                console.log(task);
+                //document.getElementById('text-update').value = task.text;
+                document.getElementById('text-update').textContent = task.text;
+                document.getElementById('date-update').value = task.date;
+                document.getElementById('update-priority-label').textContent = `Currently set to ${task.priority} priority`;
+                document.getElementById('update-project').value = task.project;
+
+        })
                 //delete
         const taskDel = document.createElement('div');
         taskDel.classList.add('task-action');
@@ -72,7 +85,6 @@ export function renderCard(task) {
                 console.log(task.id);
                 removeDomTask(task.id);
                 deleteTask(task.id);
-                
                 console.log(taskArray);
         })
 
@@ -93,7 +105,6 @@ export function removeDomTask(taskId) {
 
 export function cardDone(taskId) {
         document.getElementById(taskId).style.border = '2px lightgrey solid';
-        
         const priority = document.getElementById(`priority-${taskId}`);
         priority.textContent = 'Completed';
         priority.style.color = 'green';
@@ -102,3 +113,9 @@ export function cardDone(taskId) {
         document.getElementById(`edit-${taskId}`).style.display = 'none';
         document.getElementById(taskId).style.color = 'grey';
 }
+
+export const removeChilds = (parent) => {
+        while (parent.lastChild) {
+            parent.removeChild(parent.lastChild);
+        }
+    };

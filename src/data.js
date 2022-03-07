@@ -1,5 +1,5 @@
 export let taskArray = [
-    {'id': '1', 'project': 'Demo project', 'title': `Demo`, 'text': `This is a demo task, it can be chnaged or deleted`, 'date': `anytime`, 'priority': 'low', 'status': 'active'},
+    //{'id': '1', 'project': 'Demo project', 'title': `Demo`, 'text': `This is a demo task, it can be chnaged or deleted`, 'date': `anytime`, 'priority': 'low', 'status': 'active'},
     //{'id': '2', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
     //{'id': '3', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'low', 'status': 'active'},
     //{'id': '4', 'project': 'not project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
@@ -20,6 +20,19 @@ export function addTask(title, text, date, priority, project) { //task object co
     //log(this);
 }
 
+export function updateTask(taskId, title, text, date, priority){
+    const index = taskArray.findIndex(function(o){
+        return o.id == taskId;
+    })
+    taskArray[index].title = title;
+    taskArray[index].text = text;
+    taskArray[index].date = date;
+    taskArray[index].priority = priority;
+    updateStorage(taskArray);
+}
+    
+
+
 export function deleteTask(taskId) {
     const index = taskArray.findIndex(function(o){
      return o.id == taskId;
@@ -34,6 +47,8 @@ export function deleteTask(taskId) {
     updateStorage(taskArray);
     //if (index !== -1) taskArray.splice(index, 1);
 }
+
+
 
 export function changeStatus(taskId, newStatus) {
     const index = taskArray.findIndex(function(o){
@@ -62,7 +77,6 @@ export function loadStorage() {
             array = JSON.parse(array);
             taskArray = array;
         }
-        
     }
     else {
         let demoTask = new addTask('Demo', 'This is a demo task', 'anytime', 'low', 'Demo project');
