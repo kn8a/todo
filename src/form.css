@@ -68,8 +68,8 @@
 .formButtonClose {
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-color:lightcoral;
     color:#FFFCF2 ;
     margin: 0.5vh;
@@ -115,6 +115,12 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
       min-height: 8vh;
   }
 
+
+  .new-project-form {
+      display: none;
+      flex-direction: column;
+  }
+
   .project-buttons {
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
@@ -133,4 +139,25 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
 
 .add {
     background-color:lightgreen;
+}
+
+
+
+.project-item-btn {
+    padding: 8px;
+    background-color: white;
+    border-radius: 20px;
+    width: 85%;
+    border: 1px lightblue solid
+
+    
+
+}
+
+.project-item-btn:hover {
+    background-color: lightblue;
+}
+
+.activeProject {
+    background-color: lightgreen;
 }

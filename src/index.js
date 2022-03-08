@@ -1,32 +1,26 @@
-const log = console.log;
-
-
 import { makeCards, renderCard, removeChilds } from './tasksRender.js';
-import { addTask, taskArray, updateStorage, loadStorage, updateTask, projectArray, loadStorageProject } from './data.js';
-import { closeForm, closeUpdateForm, cleanStorageBtn, deleteProjectBtn } from './forms.js';
-import { format, compareAsc } from 'date-fns';
+import { addTask, taskArray, updateStorage, loadStorage, updateTask, projectArray, loadStorageProject, updateStorageProject } from './data.js';
+import { closeForm, closeUpdateForm, cleanStorageBtn, deleteCurrentProject,  } from './forms.js';
+import { projectsList, projectItem, newProjectFormBtn, closeProjectForm } from './projects.js';
 
 import './style.css';
 import './card.css';
 import './form.css';
 
-//log(taskArray);
-//localStorage.clear();
-//console.log(localStorage);
-//console.log(localStorage.getItem('tasks'))
-
 loadStorage(); //load tasks from local storage
 loadStorageProject(); //load projects from local storage
 
-
-console.log(localStorage.getItem('projects'));
-console.log(projectArray);
-//console.log(taskArray);
-makeCards(taskArray, projectArray[0]);
+projectsList(projectArray); //render projects from array
+makeCards(taskArray, projectArray[0]); //render task cards from array
 
 cleanStorageBtn(); //initiate button to clean storage
-deleteProjectBtn(); //initiate button to delete current project
+newProjectFormBtn(); //initiate new project button
 
+//set first project to active
+const projectButtonsArray = document.querySelectorAll('.project-item-btn');
+        projectButtonsArray[0].classList.add('activeProject');
+
+//new task form
 const form = document.getElementById('entryForm');
 form.onsubmit = function(form) { 
   let newTitle = document.getElementById('title').value;
@@ -38,12 +32,17 @@ form.onsubmit = function(form) {
   taskArray.push(taskObject);
   updateStorage(taskArray);
   closeForm(); 
-  form.preventDefault() //prevents from defaulting to original state
+  form.preventDefault()
   this.reset(); 
   log(taskArray);
   renderCard(taskArray[taskArray.length-1]);
 }
+const formCloseBtn = document.getElementById('form-close-btn');
+formCloseBtn.addEventListener('click', () => {
+  closeForm();
+})
 
+//task edit form
 const updateForm = document.getElementById('updateForm');
 updateForm.onsubmit = function(form) { 
   let newTitle = document.getElementById('title-update').value; 
@@ -55,13 +54,17 @@ updateForm.onsubmit = function(form) {
   updateTask(taskId, newTitle, newText, newDate, newPriority)
   updateStorage(taskArray);
   closeUpdateForm(); 
-  form.preventDefault() //prevents from defaulting to original state
+  form.preventDefault()
   this.reset(); 
   removeChilds(document.getElementById('main')); 
   makeCards(taskArray, project)
-  //log(taskArray);
 }
+const formUpdtCloseBtn = document.getElementById('form-update-close-btn');
+formUpdtCloseBtn.addEventListener('click', () => {
+  closeUpdateForm();
+})
 
+//new task button
 const showForm = document.getElementById('showForm'); //new book button to variable
   showForm.onclick = function() { 
     log('this is the project ',document.getElementById('showForm').getAttribute('data-project'));
@@ -71,12 +74,35 @@ const showForm = document.getElementById('showForm'); //new book button to varia
     showForm.style.cursor="default"
 }
 
-const formCloseBtn = document.getElementById('form-close-btn');
-formCloseBtn.addEventListener('click', () => {
-  closeForm();
-})
+//new project cancel button
+document.getElementById('project-cancel-button').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('new-project-form').style.display = 'none';
+  document.getElementById('new-project-name').value = ''; 
+});
 
-const formUpdtCloseBtn = document.getElementById('form-update-close-btn');
-formUpdtCloseBtn.addEventListener('click', () => {
-  closeUpdateForm();
-})
+//add new project form
+const projectForm = document.getElementById('add-project');
+projectForm.onsubmit = function(form) { 
+    let newProjectName = document.getElementById('new-project-name').value; 
+    projectArray.push(newProjectName);
+    updateStorageProject(projectArray);
+    closeProjectForm();
+    form.preventDefault()
+    this.reset();
+    projectItem(newProjectName);
+}
+
+//delete project button
+const deleteProject = document.getElementById('delete-project');
+deleteProject.onclick = function (e) {
+  const currentProject = deleteProject.value;
+  console.log(currentProject);
+  const deleteConfirm = deleteCurrentProject(currentProject);
+  if (deleteConfirm == 'yes') {
+    document.getElementById(`project-id-unique-XsTQ-${currentProject}`).remove();
+    e.preventDefault()
+    showForm.style.display = 'none';
+    deleteProject.style.display = 'none';
+  }
+}

@@ -1,4 +1,4 @@
-  
+import { deleteProject } from './data.js';
  
   
   export function closeForm() {
@@ -19,20 +19,24 @@
 
 
 
-  export function deleteProjectBtn() {
-    const deleteProject = document.getElementById('delete-project');
-    const currentProject = deleteProject.value;
-    deleteProject.addEventListener('click', () => {
-        deleteCurrentProject(currentProject);
-    })
+  //export function deleteProjectBtn() {
+  //  const deleteProject = document.getElementById('delete-project');
+   // const currentProject = deleteProject.value;
+  //  deleteProject.addEventListener('click', () => {
+  //      deleteCurrentProject(currentProject);
+  //  })
+  //  deleteProject.addEventListener('click', () => {
+  //      deleteCurrentProject(currentProject);
+  //  })
 
-}
+//}
 
 export function deleteCurrentProject(project) {
     if (confirm(`This will also delete ALL tasks in ${project}. Are you sure?`)) {
-        //write function to delete all array items with matching storage name
+        deleteProject(project);
+        return 'yes';
     } else {
-        return;
+        return 'no';
     }
 }
 

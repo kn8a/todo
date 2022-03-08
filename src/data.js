@@ -122,7 +122,18 @@ export function loadStorageProject() {
 }
 
 
-
+export function deleteProject(project) {
+    for (let i=0; i < taskArray.length; i++) {
+        if (taskArray[i].project == project) {
+            deleteTask(taskArray[i].id);
+        } 
+    }
+    updateStorage(taskArray);
+    const newArray = projectArray.filter(name => name != project);
+    console.log(newArray);
+    projectArray = newArray;
+    updateStorageProject(projectArray)      
+}
 
 // Code to check browser support
 

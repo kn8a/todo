@@ -8,8 +8,8 @@ body {
 }
 
 .sidebar {
-    padding: 2vh;
-    flex:1;
+    padding-top: 2vh;
+    flex:0.7;
     border: 0px blue solid;
     display: flex;
     flex-direction: column;
@@ -18,9 +18,8 @@ body {
 }
 
 .sidebar h3 {
-    border: 2px lightpink solid;
-    border-radius: 10px;
-    padding: 12px;
+    border-bottom: 2px lightpink solid;
+    padding: 4px;
 
 }
 
@@ -28,6 +27,24 @@ body {
 
 
 }
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.title {
+    
+    font-weight: 800;
+    font-size: 48px;
+    color: lightblue;
+    text-align: center;
+    
+}
+
 .right-pane {
     flex:5;
     display: flex;
@@ -52,3 +69,6 @@ body {
     padding-right: 2vh;
     padding-left: 2vh;
 }
+
+
+
