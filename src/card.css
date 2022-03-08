@@ -9,7 +9,7 @@
     border-radius: 15px;
     background-color: white;
 
-    border: lightblue 2px solid;
+    border: rgb(180, 180, 180) 2px solid;
 }
 
 .card p {

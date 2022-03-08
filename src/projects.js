@@ -1,15 +1,15 @@
 import { makeCards, removeChilds } from './tasksRender.js';
-import { taskArray, projectArray, loadStorageProject } from './data.js';
-//import { deleteProjectBtn } from './forms.js';
+import { taskArray } from './data.js';
 
+//render all projects from array
 export function projectsList(projects) {
     for (let i=0; i < projects.length; i++) {
         projectItem(projects[i]);
     }
 }
 
+//render single project item
 export function projectItem(project) {
-    //console.log(project);
     const projectsListDiv = document.getElementById('projects-list');
     const projectBtn = document.createElement('button');
     projectBtn.textContent = project;
@@ -25,17 +25,14 @@ export function projectItem(project) {
         projectBtn.classList.add('activeProject');
         removeChilds(document.getElementById('main'));
         makeCards(taskArray, project);
-        console.log('project button clicked ', project);
         document.getElementById('delete-project').value = '';
         document.getElementById('delete-project').value = project;
         document.getElementById('delete-project').style.display = 'inline';
         document.getElementById('showForm').style.display = 'inline';
-        //deleteProjectBtn();
     })
-
 }
 
-
+//new project button
 export function newProjectFormBtn() {
     const newProjBtn = document.getElementById('new-project-btn');
     newProjBtn.addEventListener('click', () => {
@@ -45,6 +42,5 @@ export function newProjectFormBtn() {
 
 export function closeProjectForm() {
     document.getElementById("new-project-form").style.display = "none"; //close form
-    document.getElementById("add-project").reset();  //reset form fields
-    
-  }
+    document.getElementById("add-project").reset();  //reset form fields  
+}

@@ -9,7 +9,7 @@ body {
 
 .sidebar {
     padding-top: 2vh;
-    flex:0.7;
+    width: 300px;
     border: 0px blue solid;
     display: flex;
     flex-direction: column;

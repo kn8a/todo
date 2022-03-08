@@ -1,13 +1,11 @@
 export let taskArray = [
     //{'id': '1', 'project': 'Demo project', 'title': `Demo`, 'text': `This is a demo task, it can be chnaged or deleted`, 'date': `anytime`, 'priority': 'low', 'status': 'active'},
-    //{'id': '2', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
-    //{'id': '3', 'project': 'first project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'low', 'status': 'active'},
-    //{'id': '4', 'project': 'not project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
 ];
 
 export let projectArray = []
 
-export function addTask(title, text, date, priority, project) { //task object constructor
+//object constructor for a task
+export function addTask(title, text, date, priority, project) {
     this.id = taskArray.length+1;
     if (title == ''){ this.title = 'untitled';}
     else {this.title = title;}
@@ -18,10 +16,9 @@ export function addTask(title, text, date, priority, project) { //task object co
     else {this.priority = priority;}
     this.project = project;
     this.status = 'active';
-    
-    //log(this);
 }
 
+//update task from edit from
 export function updateTask(taskId, title, text, date, priority){
     const index = taskArray.findIndex(function(o){
         return o.id == taskId;
@@ -33,8 +30,7 @@ export function updateTask(taskId, title, text, date, priority){
     updateStorage(taskArray);
 }
     
-
-
+//delete a task - actually setting all values to ''
 export function deleteTask(taskId) {
     const index = taskArray.findIndex(function(o){
      return o.id == taskId;
@@ -47,11 +43,9 @@ export function deleteTask(taskId) {
     taskArray[index].priority = '';
     taskArray[index].status = '';
     updateStorage(taskArray);
-    //if (index !== -1) taskArray.splice(index, 1);
 }
 
-
-
+//change status of a task (active/done)
 export function changeStatus(taskId, newStatus) {
     const index = taskArray.findIndex(function(o){
         return o.id == taskId;
@@ -60,19 +54,18 @@ export function changeStatus(taskId, newStatus) {
     updateStorage(taskArray);
 } 
 
+//write tasks array to localstorage
 export function updateStorage(tasksArray){
     if (typeof(window.localStorage) !== "undefined") {
         // browser supports local storage
-        localStorage.setItem('tasks', JSON.stringify(tasksArray));
-
-        console.log(localStorage);        
+        localStorage.setItem('tasks', JSON.stringify(tasksArray));      
       } else {
         // browser does not support local storage
         console.log('localstorage unsupported');
       }
 }
 
-
+//load from localstorage to tasks array
 export function loadStorage() {
     if (localStorage.getItem('tasks') != null) {
         let array = localStorage.getItem('tasks');
@@ -83,29 +76,23 @@ export function loadStorage() {
     }
     else {
         let demoTask = new addTask('Demo', 'This is a demo task', 'anytime', 'low', 'Demo project');
-
         taskArray.push(demoTask);
         updateStorage(taskArray);
     }
 }
 
-
-
-
-
-
+//write projects array to localstorage
 export function updateStorageProject(projectArray){
     if (typeof(window.localStorage) !== "undefined") {
         // browser supports local storage
         localStorage.setItem('projects', JSON.stringify(projectArray));
-        console.log(localStorage);
       } else {
         // browser does not support local storage
         console.log('localstorage unsupported');
       }
 }
 
-
+//load from localstorage to projects array
 export function loadStorageProject() {
     if ((localStorage.getItem('projects') != null) || (localStorage.getItem('projects') != undefined)) {
         let array = localStorage.getItem('projects');
@@ -115,13 +102,12 @@ export function loadStorageProject() {
         }
     }
     else {
-        
         projectArray.push('Demo project')
         updateStorageProject(projectArray);
     }
 }
 
-
+//delete a single project
 export function deleteProject(project) {
     for (let i=0; i < taskArray.length; i++) {
         if (taskArray[i].project == project) {
@@ -130,12 +116,9 @@ export function deleteProject(project) {
     }
     updateStorage(taskArray);
     const newArray = projectArray.filter(name => name != project);
-    console.log(newArray);
     projectArray = newArray;
     updateStorageProject(projectArray)      
 }
-
-// Code to check browser support
 
 
 

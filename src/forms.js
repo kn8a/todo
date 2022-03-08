@@ -1,6 +1,6 @@
 import { deleteProject } from './data.js';
  
-  
+  //close new task form
   export function closeForm() {
     document.getElementById("popupForm").style.display = "none"; //close form
     document.getElementById("entryForm").reset();  //reset form fields
@@ -9,6 +9,7 @@ import { deleteProject } from './data.js';
     showForm.style.cursor="pointer";
   }
 
+  //close task edit form
   export function closeUpdateForm() {
     document.getElementById("updateFormDiv").style.display = "none"; //close form
     document.getElementById("updateForm").reset();  //reset form fields
@@ -18,20 +19,8 @@ import { deleteProject } from './data.js';
   }
 
 
-
-  //export function deleteProjectBtn() {
-  //  const deleteProject = document.getElementById('delete-project');
-   // const currentProject = deleteProject.value;
-  //  deleteProject.addEventListener('click', () => {
-  //      deleteCurrentProject(currentProject);
-  //  })
-  //  deleteProject.addEventListener('click', () => {
-  //      deleteCurrentProject(currentProject);
-  //  })
-
-//}
-
-export function deleteCurrentProject(project) {
+//delete project confirmation prompt
+  export function deleteCurrentProject(project) {
     if (confirm(`This will also delete ALL tasks in ${project}. Are you sure?`)) {
         deleteProject(project);
         return 'yes';
@@ -40,21 +29,15 @@ export function deleteCurrentProject(project) {
     }
 }
 
-
-
-
-
-
-
-
+//clean storage button
 export function cleanStorageBtn() {
     const clearStorageBtn = document.getElementById('clear-storage');
     clearStorageBtn.addEventListener('click', () => {
         clearStorage();
-        
     })
 }
 
+//clean storage prompt
 export function clearStorage() {
     if (confirm("This will delete ALL projects and tasks. Are you sure?")) {
         localStorage.clear();

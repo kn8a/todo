@@ -34,7 +34,6 @@ form.onsubmit = function(form) {
   closeForm(); 
   form.preventDefault()
   this.reset(); 
-  log(taskArray);
   renderCard(taskArray[taskArray.length-1]);
 }
 const formCloseBtn = document.getElementById('form-close-btn');
@@ -67,7 +66,6 @@ formUpdtCloseBtn.addEventListener('click', () => {
 //new task button
 const showForm = document.getElementById('showForm'); //new book button to variable
   showForm.onclick = function() { 
-    log('this is the project ',document.getElementById('showForm').getAttribute('data-project'));
     document.getElementById('popupForm').style.display = "block"; //show form
     showForm.style.backgroundColor="transparent";//hide + button
     showForm.style.color="transparent";

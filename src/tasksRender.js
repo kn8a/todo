@@ -1,7 +1,6 @@
-//takes tasks array and project name
-
 import { deleteTask, taskArray, changeStatus } from "./data";
 
+//render all tasks
 export function makeCards (task, project) {
     for (let i=0; i < task.length; i++) {
         if (task[i].project == project) {
@@ -12,6 +11,7 @@ export function makeCards (task, project) {
     projectToCard(project);
 }
 
+//render a single task
 export function renderCard(task) {
     const mainDiv = document.getElementById('main')
     const cardDiv = document.createElement('div');
@@ -44,7 +44,7 @@ export function renderCard(task) {
     const taskActions = document.createElement('div');
     taskActions.classList.add('task-actions');
     cardBarDiv.appendChild(taskActions);
-                //complete
+                //complete button
         const taskDone = document.createElement('div');
         taskDone.classList.add('task-action');
         taskDone.setAttribute('data-done', task.id);
@@ -54,9 +54,8 @@ export function renderCard(task) {
         taskDone.addEventListener('click', () => {
                 cardDone(task.id);
                 changeStatus(task.id, 'done');
-                console.log(taskArray);
         })
-                //edit
+                //edit button
         const taskEdit = document.createElement('div');
         taskEdit.classList.add('task-action');
         taskEdit.setAttribute('data-edit', task.id);
@@ -71,26 +70,24 @@ export function renderCard(task) {
                 document.getElementById('date-update').value = task.date;
                 document.getElementById('update-priority-label').textContent = `Currently set to ${task.priority} priority`;
                 document.getElementById('update-project').value = task.project;
-
         })
-                //delete
+                //delete button
         const taskDel = document.createElement('div');
         taskDel.classList.add('task-action');
         taskDel.setAttribute('data-del', task.id);
         taskDel.textContent = '❌';
         taskActions.appendChild(taskDel);
         taskDel.addEventListener('click', () => {
-                console.log(task.id);
                 removeDomTask(task.id);
                 deleteTask(task.id);
-                console.log(taskArray);
         })
 
-        if (task.status == 'done') {
+        if (task.status == 'done') { //if task is already done
                 cardDone(task.id);
         }
 }
 
+//assign current project name to new task button
 export function projectToCard(project) {
     const newCard = document.getElementById('showForm');
     newCard.removeAttribute('data-project');
@@ -98,12 +95,14 @@ export function projectToCard(project) {
     document.getElementById('delete-project').value = project;
 }
 
+//remove a single task from DOM
 export function removeDomTask(taskId) {
         document.getElementById('main').removeChild(document.getElementById(taskId));
 }
 
+//task is done
 export function cardDone(taskId) {
-        document.getElementById(taskId).style.border = '2px lightgrey solid';
+        document.getElementById(taskId).style.border = '2px lightgreen solid';
         const priority = document.getElementById(`priority-${taskId}`);
         priority.textContent = 'Completed';
         priority.style.color = 'green';
@@ -113,6 +112,7 @@ export function cardDone(taskId) {
         document.getElementById(taskId).style.color = 'grey';
 }
 
+//remove children of node
 export const removeChilds = (parent) => {
         while (parent.lastChild) {
             parent.removeChild(parent.lastChild);
