@@ -95,6 +95,7 @@ export function projectToCard(project) {
     const newCard = document.getElementById('showForm');
     newCard.removeAttribute('data-project');
     newCard.setAttribute('data-project',project);
+    document.getElementById('delete-project').value = project;
 }
 
 export function removeDomTask(taskId) {

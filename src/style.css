@@ -47,8 +47,8 @@ body {
 
 .new-card {
     display: flex;
-    justify-content: right;
-    justify-items:flex-end;
-    padding-bottom: 20px;
-    padding-right: 20px;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    padding-right: 2vh;
+    padding-left: 2vh;
 }

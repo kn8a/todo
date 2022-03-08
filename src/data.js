@@ -5,6 +5,8 @@ export let taskArray = [
     //{'id': '4', 'project': 'not project', 'title': `task2`, 'text': `this is some task that needs to be completed`, 'date': `30/02/2022`, 'priority': 'high', 'status': 'active'},
 ];
 
+export let projectArray = []
+
 export function addTask(title, text, date, priority, project) { //task object constructor
     this.id = taskArray.length+1;
     if (title == ''){ this.title = 'untitled';}
@@ -62,6 +64,7 @@ export function updateStorage(tasksArray){
     if (typeof(window.localStorage) !== "undefined") {
         // browser supports local storage
         localStorage.setItem('tasks', JSON.stringify(tasksArray));
+
         console.log(localStorage);        
       } else {
         // browser does not support local storage
@@ -80,10 +83,44 @@ export function loadStorage() {
     }
     else {
         let demoTask = new addTask('Demo', 'This is a demo task', 'anytime', 'low', 'Demo project');
+
         taskArray.push(demoTask);
         updateStorage(taskArray);
     }
 }
+
+
+
+
+
+
+export function updateStorageProject(projectArray){
+    if (typeof(window.localStorage) !== "undefined") {
+        // browser supports local storage
+        localStorage.setItem('projects', JSON.stringify(projectArray));
+        console.log(localStorage);
+      } else {
+        // browser does not support local storage
+        console.log('localstorage unsupported');
+      }
+}
+
+
+export function loadStorageProject() {
+    if ((localStorage.getItem('projects') != null) || (localStorage.getItem('projects') != undefined)) {
+        let array = localStorage.getItem('projects');
+        if (array != null) {
+            array = JSON.parse(array);
+            projectArray = array;
+        }
+    }
+    else {
+        
+        projectArray.push('Demo project')
+        updateStorageProject(projectArray);
+    }
+}
+
 
 
 

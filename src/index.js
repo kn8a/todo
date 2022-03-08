@@ -2,8 +2,9 @@ const log = console.log;
 
 
 import { makeCards, renderCard, removeChilds } from './tasksRender.js';
-import { addTask, taskArray, updateStorage, loadStorage, updateTask } from './data.js';
-import { closeForm, closeUpdateForm, newTaskSubmit } from './forms.js';
+import { addTask, taskArray, updateStorage, loadStorage, updateTask, projectArray, loadStorageProject } from './data.js';
+import { closeForm, closeUpdateForm, cleanStorageBtn, deleteProjectBtn } from './forms.js';
+import { format, compareAsc } from 'date-fns';
 
 import './style.css';
 import './card.css';
@@ -14,9 +15,17 @@ import './form.css';
 //console.log(localStorage);
 //console.log(localStorage.getItem('tasks'))
 
-loadStorage();
+loadStorage(); //load tasks from local storage
+loadStorageProject(); //load projects from local storage
+
+
+console.log(localStorage.getItem('projects'));
+console.log(projectArray);
 //console.log(taskArray);
-makeCards(taskArray, 'Demo project');
+makeCards(taskArray, projectArray[0]);
+
+cleanStorageBtn(); //initiate button to clean storage
+deleteProjectBtn(); //initiate button to delete current project
 
 const form = document.getElementById('entryForm');
 form.onsubmit = function(form) { 
@@ -31,7 +40,7 @@ form.onsubmit = function(form) {
   closeForm(); 
   form.preventDefault() //prevents from defaulting to original state
   this.reset(); 
-  //log(taskArray);
+  log(taskArray);
   renderCard(taskArray[taskArray.length-1]);
 }
 
