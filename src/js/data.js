@@ -119,6 +119,3 @@ export function deleteProject(project) {
     projectArray = newArray;
     updateStorageProject(projectArray)      
 }
-
-
-

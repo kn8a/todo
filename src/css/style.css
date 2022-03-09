@@ -17,7 +17,6 @@ body {
     border-radius: 40px;
     min-width: 200px;
     max-width: 400px;
-
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -27,12 +26,6 @@ body {
 
 .sidebar h3 {
     padding: 4px;
-
-}
-
-.sidebar h3.active {
-
-
 }
 
 .projects-list {
@@ -48,8 +41,7 @@ body {
     font-weight: 800;
     font-size: 48px;
     color: #C5C3C6;
-    text-align: center;
-    
+    text-align: center;  
 }
 
 .right-pane {
@@ -77,6 +69,3 @@ body {
     padding-left: 2vh;
     background-color: #46494C;
 }
-
-
-

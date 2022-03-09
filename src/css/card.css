@@ -1,5 +1,4 @@
 .card {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,7 +32,6 @@
     font-weight: 200;
     font-size: x-small;
     border-radius: 50px;
-
 }
 
 .priority-high {
