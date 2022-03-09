@@ -11,4 +11,4 @@
 - toggle view (cards/list)
 - undo completed task
 - display number of incomplete tasks for each project item
-- add project nave above cards
+- add project name above cards
