@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoToo</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="title">Projects</div>
+        <h3 class="active"></h3>
+        <div class="projects-list" id="projects-list"> 
+        </div>
+        <div class="new-project-btn-div">
+            <button class="new-project-btn" id="new-project-btn">+ New project</button>
+        </div>
+        <div class="new-project-form" id="new-project-form">
+            <form id="add-project" autocomplete="off">
+                <input type="text" id="new-project-name" placeholder="Enter project name" required>
+                <div class="new-project-buttons">
+                    <button class="project-buttons add">✔</button>
+                    <button id="project-cancel-button" class="project-buttons cancel">X</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="right-pane">
+        <div class="main" id="main">       
+        </div>
+        <div class='form' id='popupForm'>
+            <div class="buttonCont"><button class="formButtonClose" type="close" id="form-close-btn">X</button></div>
+            <form id='entryForm' autocomplete="off">
+                <label for='title' >Title</label>
+                <input type="text" id='title' name='title' placeholder="Task Title">
+                <label for='text'>Task Details</label>
+                <textarea rows="5" id='text' name="text" placeholder="Enter text"></textarea>
+                <label for="date">Due date:</label>
+                <input type="date" id="date" name="date">
+                <label for='priority'>Priority</label>
+                <select name=”priority” id="priority">
+                    <option value=low>Low</option>
+                    <option value=medium>Medium</option>
+                    <option value=high>High</option>    
+                </select>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <button class="formButton" id="submit" type="submit">✔</button>
+            </form>         
+        </div> 
+        <div class='form' id='updateFormDiv'>
+            <div class="buttonCont"><button class="formButtonClose" type="close" id="form-update-close-btn">X</button></div>
+            <form id='updateForm' autocomplete="off">
+                <h2>Edit Task</h2>
+                <input type="hidden" id='update-id' name='update-id'>
+                <label for='title' >Title</label>
+                <input type="text" id='title-update' name='title'>
+                <label for='text'>Task Details</label>
+                <textarea rows="5" id='text-update' name="text"></textarea>
+                <label for="date">Due date:</label>
+                <input type="date" id="date-update" name="date">
+                <label for='priority' id="update-priority-label">Priority</label>
+                <select name=”priority” id="priority-update">
+                    <option value=low>Low</option>
+                    <option value=medium>Medium</option>
+                    <option value=high>High</option>
+                </select>
+                <input type="hidden" id='update-project' name='update-project' disabled>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <button class="formButton" id="submit-update" type="submit">✔</button>
+            </form>       
+        </div>
+        <div class="new-card">
+            <button id='showForm' class="newCardBtn">+</button>
+            <div>
+                <button class="toolbar" id="delete-project" value="project-name">Delete project</button>
+                <button class="toolbar" id="clear-storage">Clear entire storage</button>
+            </div>
+        </div>
+    </div>
+    <script defer src="main.js"></script>
+</body>
+</html>
