@@ -13,8 +13,8 @@ import { deleteProject } from './data.js';
   export function closeUpdateForm() {
     document.getElementById("updateFormDiv").style.display = "none"; //close form
     document.getElementById("updateForm").reset();  //reset form fields
-    showForm.style.backgroundColor="lightblue"; //restor + button
-    showForm.style.color="#FFFCF2";
+    showForm.style.backgroundColor="#1985A1"; //restor + button
+    showForm.style.color="azure";
     showForm.style.cursor="pointer";
   }
 
