@@ -5,11 +5,12 @@
     justify-content: space-between;
     height: min-content;
     width: 300px;
-    padding: 1vh;
-    border-radius: 15px;
-    background-color: white;
-
-    border: rgb(180, 180, 180) 2px solid;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: #353b41;
+    border: #1985A1 2px solid;
+    color: azure;
+    transition: border 200ms ease-in;
 }
 
 .card p {
@@ -62,9 +63,18 @@
 .task-action {
     padding: 1vh;
     border-radius: 50px;
-    border: 1px grey solid;
+    border: 1px #1985A1 solid;
     font-size: x-small;
     cursor: pointer;
+    background-color: #252b2c;
+}
+
+.task-action:hover {
+    background-color: #4C5C68;
+}
+
+.task-action:active {
+    background-color: #4C5C68;
 }
 
 .new-card {

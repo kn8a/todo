@@ -102,7 +102,7 @@ export function removeDomTask(taskId) {
 
 //task is done
 export function cardDone(taskId) {
-        document.getElementById(taskId).style.border = '2px lightgreen solid';
+        document.getElementById(taskId).style.border = '2px #4C5C68 solid';
         const priority = document.getElementById(`priority-${taskId}`);
         priority.textContent = 'Completed';
         priority.style.color = 'green';

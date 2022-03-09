@@ -1,9 +1,9 @@
 .newCardBtn {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border-radius: 100%;
-    background-color: lightblue;
-    color: #FFFCF2;
+    background-color: #1985A1;
+    color:azure;
     border: 0;
     font-size: xx-large;
     transition: transform 100ms ease-in;
@@ -27,11 +27,10 @@
     border: 2px solid lightblue;
     border-radius: 3vh;
     z-index: 9;
-    background-color: #ffffff;
+    background-color: #353b41;
     padding: 3vh;
-    color: #403D39;
+    color: #DCDCDD;
     box-shadow: 1px 1px 14px -1px lightblue;
-
 }
 
 #entryForm, #updateForm {
@@ -99,7 +98,7 @@ label {
 }
 
 input[type="text"], input[type="number"], textarea, input[type="date"], select{
-    border:1px lightblue solid;
+    border:1px #1985A1 solid;
     outline:none;
     height:34px;  
     bottom:14px;
@@ -109,6 +108,8 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
     box-sizing:border-box;
     padding:0 18px; 
     margin: 1vh;
+    background-color: #252b2c;
+    color: azure;
   }
 
   textarea {
@@ -143,21 +144,49 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
 
 
 
-.project-item-btn {
-    padding: 8px;
-    background-color: white;
-    border-radius: 20px;
-    width: 85%;
-    border: 1px lightblue solid
+.project-item-btn, .new-project-btn {
 
+    border: 0px;
+    border-left: #4C5C68 1vh solid;
+    border-right: #4C5C68 1vh solid;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    padding: 8px;
+    background-color: #4C5C68;
+    color: aliceblue;
+    font-size: larger;
+    width: 100%;
+    cursor: pointer;
+    transition: border 100ms ease-in;
     
+    
+
 
 }
 
 .project-item-btn:hover {
-    background-color: lightblue;
+    border-left: #1985A1 1vh solid;
+
+
 }
 
 .activeProject {
-    background-color: lightgreen;
+    border-left: #1985A1 1vh solid;
+    border-right: #46494C 1vh solid;
+    background-color: #46494C;
+    transition: background-color 100ms ease-in;
+    transition: border-right 100ms ease-in;
+}
+
+
+#new-project-btn:hover {
+    border-left: lightgreen 1vh solid;
+    
+}
+
+.toolbar {
+    background-color: #4C5C68;
+    border-radius: 8px;
+    color: #C5C3C6;
+    padding: 8px;
 }

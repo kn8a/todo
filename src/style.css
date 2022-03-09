@@ -3,22 +3,26 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
-    background-color: white;
+    background-color: #46494C;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .sidebar {
+    margin-top: 1vh;
+    margin-left: 1vh;
+    margin-bottom: 1vh;
+    margin-right: 1vh;
     padding-top: 2vh;
+    border-radius: 40px;
     width: 300px;
-    border: 0px blue solid;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-right: 2px lightsalmon solid;
+    background-color: #4C5C68;
+    box-shadow: -2px 0px 11px 0px rgba(0,0,0,0.75);
 }
 
 .sidebar h3 {
-    border-bottom: 2px lightpink solid;
     padding: 4px;
 
 }
@@ -37,10 +41,10 @@ body {
 }
 
 .title {
-    
+
     font-weight: 800;
     font-size: 48px;
-    color: lightblue;
+    color: #C5C3C6;
     text-align: center;
     
 }
@@ -56,10 +60,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    border: 0px red solid;
     row-gap: 2vh;
     column-gap: 2vh;
     padding: 2vh;
+    background-color: #46494C;
 }
 
 .new-card {
@@ -68,6 +72,7 @@ body {
     padding-bottom: 2vh;
     padding-right: 2vh;
     padding-left: 2vh;
+    background-color: #46494C;
 }
 
 
