@@ -8,13 +8,16 @@ body {
 }
 
 .sidebar {
+    flex: 1;
     margin-top: 1vh;
     margin-left: 1vh;
     margin-bottom: 1vh;
     margin-right: 1vh;
     padding-top: 2vh;
     border-radius: 40px;
-    width: 300px;
+    min-width: 200px;
+    max-width: 400px;
+
     display: flex;
     flex-direction: column;
     text-align: center;

@@ -102,12 +102,12 @@ input[type="text"], input[type="number"], textarea, input[type="date"], select{
     outline:none;
     height:34px;  
     bottom:14px;
-    right:9px;
     border-radius:22px;
-    width:220px;
+    width:95%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     box-sizing:border-box;
     padding:0 18px; 
-    margin: 1vh;
     background-color: #252b2c;
     color: azure;
   }
