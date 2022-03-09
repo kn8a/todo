@@ -1,11 +1,11 @@
-import { makeCards, renderCard, removeChilds } from './tasksRender.js';
-import { addTask, taskArray, updateStorage, loadStorage, updateTask, projectArray, loadStorageProject, updateStorageProject } from './data.js';
-import { closeForm, closeUpdateForm, cleanStorageBtn, deleteCurrentProject,  } from './forms.js';
-import { projectsList, projectItem, newProjectFormBtn, closeProjectForm } from './projects.js';
+import { makeCards, renderCard, removeChilds } from './js/tasksRender.js';
+import { addTask, taskArray, updateStorage, loadStorage, updateTask, projectArray, loadStorageProject, updateStorageProject } from './js/data.js';
+import { closeForm, closeUpdateForm, cleanStorageBtn, deleteCurrentProject,  } from './js/forms.js';
+import { projectsList, projectItem, newProjectFormBtn, closeProjectForm } from './js/projects.js';
 
-import './style.css';
-import './card.css';
-import './form.css';
+import './css/style.css';
+import './css/card.css';
+import './css/form.css';
 
 loadStorage(); //load tasks from local storage
 loadStorageProject(); //load projects from local storage
