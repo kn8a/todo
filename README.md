@@ -27,4 +27,4 @@ A simple To-do task organizer written in JS, CSS, HTML
 ## Mistakes:
 - Workikng on the project before fully planning it.
 - Approaching parts of the project in an incorrect order, resulted in code being more complex than it could have been otherwise.
-- Code ended up being complex and resulted in having to add many patches on the surface rather than fixing the bugs in their source source.
+- Code ended up being complex and resulted in having to add many patches on the surface rather than fixing the bugs in their source.
