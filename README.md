@@ -6,6 +6,10 @@ A simple To-do task organizer written in JS, CSS, HTML
 ## Objectives:
 - make a todo app that is suitable for daily use
 - use cards as tasks to make it more effective as a simple tool for notes.
+- ability to add new projects and create tasks under each project
+- fields: title, description, date, priority
+- edit tasks
+- mark as completed
 
 ## Bugs to fix:
 - prevent duplicate project names.
@@ -20,6 +24,8 @@ A simple To-do task organizer written in JS, CSS, HTML
 - display number of incomplete tasks for each project item.
 - add project name above cards.
 - place code on index.js into modules.
+- add animations to new-task/edit forms.
+- make forms wider.
 
 ## Learned: 
 - searching array by object property.
