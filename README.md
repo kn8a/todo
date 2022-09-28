@@ -1,7 +1,8 @@
 # todo
 A simple To-do task organizer written in JS, CSS, HTML
 
-<img src=https://user-images.githubusercontent.com/88045655/158007652-db7c83fd-ffa7-4dbd-b980-aa94bc5bb0e8.JPG alt="To-do tasks" width="600">
+![Capturgerre](https://user-images.githubusercontent.com/88045655/192801674-fc887e90-51a6-4585-8e28-eee88f841d14.JPG)
+
 
 ## Objectives:
 - make a todo app that is suitable for daily use
